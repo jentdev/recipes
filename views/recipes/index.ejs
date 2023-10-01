@@ -1,0 +1,35 @@
+<%- include('../partials/_header.ejs', {title: 'Recipes'}) %>
+        <title>Dashboard</title>
+    </head>
+    <body>
+<%- include('../partials/_nav.ejs') %>
+    <h1>Recipes</h1>
+<div class="row">
+  <% if (recipes.length !== 0) { %>
+  <% recipes.forEach(el => { %>
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-image">
+
+        <%-editIcon(el.user._id, user._id, el._id)%>
+
+      </div>
+      <div class="card-content">
+        <h5><%= el.title %></h5>
+        <p><%=truncate(stripTags(el.body), 150)%></p>
+        <br>
+        <div class="chip">
+          <img src="<%=el.user.image%>" alt="" onerror="this.onerror=null;this.src='../../img/profile-img.png'">
+          <a href="/recipes/user/<%=el.user._id%>"><%=el.user.firstName%> <%=el.user.lastName%></a>
+        </div>
+        <div class="card-action center-align">
+          <a href="/recipes/<%=el._id%>" class="btn grey">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %> <% } else { %>
+  <p>You have not created any recipes.</p>
+  <% } %>
+</div>
+<%- include('../partials/_footer.ejs') %>

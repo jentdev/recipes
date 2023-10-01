@@ -1,0 +1,55 @@
+<%- include('partials/_header.ejs', {title: 'Dashboard'}) %>
+
+<%- include('partials/_nav.ejs') %>
+
+<%- include('partials/_btn-add.ejs') %>
+
+<p>Welcome <%= firstName %></p>
+
+<%- include('partials/_btn-add.ejs') %>
+
+
+    <% if (recipes.length !== 0) { %>
+        <%= recipes._id %>
+            <p>Here are your recipes</p>
+
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% recipes.forEach(el => { %>
+                        <tr>
+                            <td><a href="/recipes/<%=el._id%>"><%=el.title%></a></td>
+                            <td><%- formatDate(el.createdAt, 'MMMM Do YYYY, h:mm:ss a') %></td>
+                            <td><span class="dash-status"><%=el.status %></span></td>
+                            <td class="form-btn-container">
+                                <a href="/recipes/edit/<%=el._id%>" class="btn">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <form action="/recipes/<%=el._id%>" method="POST" id="delete-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="btn red" type="submit">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>You have not created any recipes.</p>
+    <% } %>
+
+
+
+<%- include('partials/_footer.ejs') %>
+
+<a href="/auth/logout" class="btn">logout</a>

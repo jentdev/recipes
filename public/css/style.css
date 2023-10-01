@@ -1,0 +1,90 @@
+.bg-opacity {
+    content: '';
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-position: center;
+    opacity: .3;
+    position: fixed;
+}
+
+.login-container {
+    max-width: 400px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+p {
+    text-align: left;
+}
+
+.disabled {
+    pointer-events: none;
+        opacity: 0.4;
+}
+
+.ck.ck-content:not(.ck-comment__input *) {
+   min-height: 300px;
+   max-height: 300px;
+}
+
+/* .card {
+    height: 350px;
+    max-height: 350px;
+} */
+
+i.fas.fa-small {
+    font-size: 16px;
+}
+
+.form-btn-container {
+    display: flex;
+    gap: 1rem;
+}
+
+div.container {
+    max-width: 500px;
+}
+
+div.card-content.login-padding {
+    padding-bottom: 5rem;
+}
+
+div.login-padding {
+    padding: .5rem 0;
+}
+
+div.logo-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+div.card-content.local-login {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+div.btn-container {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+div.name-container {
+    display: flex;
+    gap: 3rem;
+}
+a.btn.btn-login {
+    width: 60%;
+}
+
+p {
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+}

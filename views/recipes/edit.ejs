@@ -1,0 +1,37 @@
+<%- include('../partials/_header.ejs') %>
+
+<h3>Edit Your Recipe</h3>
+
+<div class="row">
+    <form action="/recipes/<%=recipe._id%>" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title" id="title" value="<%=recipe.title%>">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    <%-select(recipe.status)%>
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Start editing your recipe:</h5>
+                <textarea name="body" id="body"><%=recipe.body%></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/_footer.ejs') %>

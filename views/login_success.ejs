@@ -1,0 +1,64 @@
+<%- include('partials/_header.ejs', {title: 'Log in'}) %>
+<div class="bg-opacity"></div>
+
+<div class="container">
+  <div class="card white">
+    <div class="card-content white">
+      <div class="card-title teal-text darken-4 center logo-heading"><div><h1><i class="fa-solid fa-file-pen"></i></h1></div><div><h1>Crochet Patterns</h1></div></div>
+      <p>Write your own crochet patterns.</p>
+      <p>Keep them safe, or share them with the world.</p>
+    </div>
+
+    <div class="card-content">
+      <div>login success</div>
+
+      <div class="card-content local-login">
+        <form action="/auth/login" method="POST">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+            />
+          </div>
+
+          <div class="btn-container">
+          
+            <button type="submit" class="waves-effect waves-light btn">Login</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+    <div class="divider"></div>
+    <div class="card-action center">
+      <a class="waves-effect waves-light btn" href="/auth/signup"><i class="fa-regular fa-envelope"></i> &nbsp; Sign up with Email</a>
+    </div>
+
+    <div class="divider"></div>
+    <div class="card-action center">
+      <a class="waves-effect waves-light btn" href="/auth/google"><i class="fa-brands fa-google"></i> &nbsp; Login with Google</a>
+    </div>
+
+    <div class="divider"></div>
+    <div class="card-content white">
+      <div class="login-padding"></div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/_footer.ejs') %>

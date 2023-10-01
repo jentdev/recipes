@@ -1,0 +1,30 @@
+<%- include('../partials/_header.ejs') %>
+        <title><%=recipe.title%></title>
+    </head>
+    <body>
+<%- include('../partials/_nav.ejs') %>
+<div class="row">
+  <div class="col s12 m8">
+    <h3><%=recipe.title%>
+      <small><%-editIcon(recipe.user._id, user._id, recipe._id, false)%></small>
+    </h3>
+    <div class="card story">
+      <div class="card-content">
+        <span class="card-title"><%=formatDate(recipe.date, 'MMMM Do YYYY, h:mm:ss a')%></span>
+        <%-recipe.body%>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-content center-align">
+        <span class="card-title"><%=recipe.user.firstName%> <%=recipe.user.lastName%></span>
+        <img src="<%=recipe.user.image%>" class="circle responsive-img img-small" onerror="this.onerror=null;this.src='../../img/profile-img.png'">
+      </div>
+      <div class="card-action">
+        <a href="/recipes/user/<%=recipe.user._id%>">More from <%=recipe.user.firstName%></a>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/_footer.ejs') %>
